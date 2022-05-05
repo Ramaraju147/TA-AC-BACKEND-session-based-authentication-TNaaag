@@ -1,18 +1,18 @@
 writeCode
 
-Add flash messages for:-
+Implement login for the previously registered user which have been generated in previous sections
 
-1. During registration
+- handle a GET request on `/users/login` to render the login form which should accept
 
-- if email is not unique
-- if password is less than 4 chars
-- redirect to registration page in above condition with an appropriate flash messge
+  - email
+  - password
 
-2. During login
+- handle a POST request on `users/login` where we verify the login credentials passed by the user
 
-- if email is not registered
-- if password is wrong
-- if no email, password is passed to login router
-- redirect to login page with an appropriate flash message
+- after a successful login attempt, create a session for each logged in user & redirect to `/dashboard` page by creating one
 
-Implement logout for loggd in users
+- persist logged in session information on server side using connect-mongo
+
+##### Note:-
+
+Remember to add session middleware in app.js before proceeding with the login steps
